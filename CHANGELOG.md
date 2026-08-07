@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Repository initialization for Project PHI
 - AI Operating System (AIOS) documentation structure under `docs/`, spanning 22 numbered sections (`00-ai-command-center` through `21-releases`)
 - `PHI_SYSTEM.md` — AIOS behavior contract playbook (draft)
-- Master blueprint and foundational AIOS documentation (draft)
+- Foundational AIOS documentation structure (draft)
 - `PHI_PRD.md` — Product Requirements Document skeleton (25 sections, all placeholders pending content)
 - Architecture document skeletons: system, AI, API, backend, frontend, database, and data architecture (`docs/03-architecture/`)
 - AI playbook skeletons for architect, engineer, research, and analyst roles (`docs/01-ai-playbooks/`)
