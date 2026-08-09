@@ -1,39 +1,22 @@
 # 19 · Roadmap
 
-**Status:** Draft
-**Last Updated:** 2026-08-02
+**Status:** Index — points to canonical roadmap
+**Last Updated:** 2026-08-10
 
 ## Purpose
 
-Communicate the product and engineering roadmap for Project PHI.
+Serve as the navigation entry point for the roadmap when browsing `docs/` in numbered order. The roadmap's actual content lives in one canonical location, not here.
+
+## Canonical Roadmap
+
+→ **[`docs/ROADMAP/NEXT_STEPS.md`](../ROADMAP/NEXT_STEPS.md)**
 
 ## Scope
 
-Covers forward-looking plans and milestones. Does not cover completed work, which is captured in 21-releases.
-
-## What Belongs Here
-
-- Roadmap overviews
-- Milestone and quarter plans
-- Prioritization notes
-
-## Naming Convention
-
-Use kebab-case markdown files, e.g. `2026-roadmap.md`.
-
-## Example Files
-
-- `2026-roadmap.md`
-- `milestones.md`
+This file intentionally does not duplicate roadmap content. If the roadmap ever moves, update the link above rather than copying content into this file.
 
 ## Best Practices
 
-- Keep the roadmap directional, not a strict commitment, unless stated otherwise
-- Review and update on a regular cadence
-- Link roadmap items to relevant decisions and workflows
-
-## TODO
-
-- [ ] Fill in real purpose statement once scope is confirmed
-- [ ] Add first real document to this folder
-- [ ] Review naming convention with team
+- Keep this pointer accurate if the canonical roadmap's location ever changes
+- Review and update the canonical roadmap on a regular cadence
+- Link roadmap items to relevant decisions ([`docs/18-decisions/`](../18-decisions/)) and workflows ([`docs/16-workflows/`](../16-workflows/))

@@ -7,7 +7,7 @@ Important product and technical decisions should be represented in version-contr
 PHI should be developed in small, testable phases rather than attempting the entire system at once.
 
 ## 3. Evidence First
-Academic automation should rely on verified source data instead of assumptions.
+Automated processes should rely on verified source data instead of assumptions.
 
 ## 4. Explicit Unknowns
 Missing or unverified information should remain explicitly unknown until reliable data is available.

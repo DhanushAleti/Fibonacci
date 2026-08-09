@@ -1,19 +1,9 @@
-# PHI Research Log
+# PHI Research Log — Moved
 
-## 2026-08-08
+**This file is deprecated and retained only for historical/link-stability purposes.**
 
-### Repository State
+Its original content (the 2026-08-08 entry: "Repository State" and "Next Research Priorities") has been merged, verbatim, into the canonical chronological research/development log:
 
-- Product requirements are defined.
-- System architecture is substantially drafted.
-- Research protocol is established.
-- Current research direction is focused on falsifiable evaluation of
-  Golden Ratio/Fibonacci-derived market features.
+→ **[`docs/research/RESEARCH_LOG.md`](../research/RESEARCH_LOG.md)**
 
-### Next Research Priorities
-
-1. Define the canonical dataset contract.
-2. Define feature-generation rules without look-ahead bias.
-3. Establish baseline and placebo implementations.
-4. Define the minimum backtesting and statistical evaluation protocol.
-5. Build reproducible experiments only after these contracts are fixed.
+Do not add new entries to this file. Add new research/development log entries to the canonical log linked above.

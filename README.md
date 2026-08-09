@@ -1,6 +1,8 @@
 # Project PHI
 
-Project PHI is a research-grade AI quantitative market intelligence platform. This repository currently contains the project's foundational documentation and repository scaffolding — application code has not yet been written.
+Project PHI is a research-grade quantitative platform built to answer one specific, falsifiable question: do Golden Ratio (φ ≈ 1.6180339887) and Fibonacci-derived mathematical features carry statistically useful, out-of-sample predictive information about financial markets, once measured against realistic controls? See [docs/02-project/PHI_PRD.md](docs/02-project/PHI_PRD.md) for the full research question, hypotheses, and product requirements, and [docs/03-architecture/SYSTEM_ARCHITECTURE.md](docs/03-architecture/SYSTEM_ARCHITECTURE.md) for the architecture built to answer it. This repository currently contains the project's foundational documentation and repository scaffolding — application code has not yet been written.
+
+**What PHI is not:** PHI is not a general-purpose academic/education platform. Earlier in this repository's history, a materially different "AcademicOS" documentation set (academic data, courses, assessments, grades, scheduling) was added alongside the Fibonacci research material under the same project name. That material has been separated out to [archive/academicos/](archive/academicos/README.md) so it isn't mistaken for this project's actual scope — see that folder's README for why, and [docs/ORGANIZATION_REPORT.md](docs/ORGANIZATION_REPORT.md) for the full identity-resolution audit. Nothing was deleted; no decision has been made about that material's future.
 
 ## Current Status
 
@@ -51,6 +53,7 @@ project-phi/
 │   ├── 20-meeting-notes/      # Meeting notes
 │   ├── 21-releases/           # Release notes
 │   └── REFERENCE/             # GitHub labels, milestones, and other reference docs
+├── archive/                    # Isolated, non-canonical material (e.g. archive/academicos/ — see its README)
 ├── .github/                   # GitHub configuration
 ├── CHANGELOG.md               # Version history (Keep a Changelog format)
 ├── VERSION                    # Current version string
