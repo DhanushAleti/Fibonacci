@@ -6,13 +6,13 @@ Project PHI is a research-grade quantitative platform built to answer one specif
 
 ## Current Status
 
-**Version:** 0.1.0 — AIOS Foundation (see [CHANGELOG.md](CHANGELOG.md) and [docs/21-releases/v0.1.0.md](docs/21-releases/v0.1.0.md))
+**Version:** 0.2.0 — Phase 0 (Engineering Foundation) and Phase 1 (Data Foundation) implemented and tested (see [CHANGELOG.md](CHANGELOG.md) and [docs/ROADMAP/NEXT_STEPS.md](docs/ROADMAP/NEXT_STEPS.md))
 
-The repository is in a documentation-first phase:
+The PRD (`docs/02-project/PHI_PRD.md`) and architecture documents (`docs/03-architecture/`) are drafted with real content (not skeletons), and application code has now begun against them:
 
-- The AI Operating System (AIOS) documentation structure is in place under `docs/`
-- The Product Requirements Document (`docs/02-project/PHI_PRD.md`) and architecture documents (`docs/03-architecture/`) exist as reviewed skeletons — every section is explicitly marked `Status: Draft` with open TODOs
-- `backend/`, `frontend/`, `data/`, `models/`, `notebooks/`, `scripts/`, and `tests/` are scaffolded but currently empty
+- **Implemented and tested:** `src/phi/{config,logging,cli}.py` (Phase 0), and `src/phi/data/` — time semantics / the T-1 information barrier, domain schemas, data validation (gap/duplicate/monotonicity/volume checks), a synthetic (test-only) data provider, a local Parquet-backed storage repository, and ingestion orchestration (Phase 1). 77 tests, 97% coverage, lint- and type-clean. Run `uv sync --extra dev && uv run pytest` to verify.
+- **Not yet implemented:** feature engineering / the Golden Ratio feature laboratory (Phase 2), the event-driven backtester (Phase 3), statistical validation (Phase 4), and experiment tracking (Phase 5). No real market-data provider is connected — all validated data so far is clearly-labeled synthetic, never presented as market evidence. See [docs/ROADMAP/NEXT_STEPS.md](docs/ROADMAP/NEXT_STEPS.md) for what's done versus deferred, and [docs/18-decisions/](docs/18-decisions/) for implementation-environment decisions (e.g. why Phase 1 storage is Parquet rather than the architecture's committed PostgreSQL/TimescaleDB).
+- `backend/`, `frontend/`, `models/`, `notebooks/` remain empty — correctly deferred to their respective phases.
 
 ## Roadmap
 
@@ -62,12 +62,12 @@ project-phi/
 
 ## Getting Started
 
-This project does not yet have runnable application code, so there is no build or run step at this stage. To get oriented:
-
 1. Clone the repository.
-2. Start at [docs/00-ai-command-center/README.md](docs/00-ai-command-center/README.md) — the entry point and index for all documentation.
-3. Read [docs/02-project/PHI_PRD.md](docs/02-project/PHI_PRD.md) for product context and [docs/03-architecture/README.md](docs/03-architecture/README.md) for the architecture overview.
-4. Review [docs/17-standards/README.md](docs/17-standards/README.md) and [docs/16-workflows/README.md](docs/16-workflows/README.md) before contributing.
+2. `uv sync --extra dev` to install pinned dependencies into `.venv`.
+3. `uv run pytest` to run the test suite (`ruff check .` and `uv run mypy` for lint/type-checking).
+4. Start at [docs/00-ai-command-center/README.md](docs/00-ai-command-center/README.md) — the entry point and index for all documentation.
+5. Read [docs/02-project/PHI_PRD.md](docs/02-project/PHI_PRD.md) for product context and [docs/03-architecture/README.md](docs/03-architecture/README.md) for the architecture overview.
+6. Review [docs/17-standards/README.md](docs/17-standards/README.md) and [docs/16-workflows/README.md](docs/16-workflows/README.md) before contributing.
 
 ## Documentation
 

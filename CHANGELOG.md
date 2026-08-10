@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Phase 0 — Engineering Foundation:** `pyproject.toml` (uv/hatchling build, pinned runtime deps: polars, numpy, pydantic; dev deps: pytest, pytest-cov, hypothesis, ruff, mypy); `src/phi/{__init__,config,logging,cli}.py` — deterministic settings, secret handling (never hardcoded, never logged), structured JSON logging, a minimal introspection CLI (`phi version`, `phi info`).
+- **Phase 1 — Data Foundation** (`src/phi/data/`): the time-semantics backbone and T-1/information-barrier enforcement (`time.py`); domain schemas for `Instrument`, `PriceBar`, `DataProvenance`, `DataQualityFlag` (`schemas.py`); a minimal weekday-based trading calendar (`calendar.py`); Data Validation covering gap detection, duplicate/conflict handling, arrival-order monotonicity, and leave-one-out volume-plausibility checks (`validation.py`); a deterministic, clearly-labeled synthetic OHLCV provider for engineering validation only (`providers/synthetic.py`); a local, content-hashed, append-only Parquet-backed `PriceBarRepository` (`storage.py`); ingestion orchestration (`ingestion.py`); and a point-in-time query helper plus a worked example demonstrating availability-time-vs-decision-time correctness end to end, satisfying PRD-ACCEPT-002 (`pointintime.py`).
+- [docs/18-decisions/0001-phase1-local-storage-implementation.md](docs/18-decisions/0001-phase1-local-storage-implementation.md) — first ADR, recording why Phase 1 storage is a local Parquet repository rather than the architecture's committed PostgreSQL/TimescaleDB (no database server available in this development environment).
+- 77 tests (unit, leakage, property-based via Hypothesis), 97% coverage, ruff- and mypy-clean.
+
 ## [0.1.0] - 2026-08-02 — AIOS Foundation
 
 ### Added
