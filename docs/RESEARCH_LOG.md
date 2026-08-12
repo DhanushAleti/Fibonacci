@@ -36,3 +36,14 @@ Phase 4 remains fail-closed.
 No positive PHI claim may be made unless the repaired synthetic validation demonstrates acceptable null calibration and the predefined confirmatory criteria are satisfied.
 
 A successful software run is not equivalent to scientific validation.
+
+### Repair Status
+
+The current implementation introduces the `Z_phi` surrogate test as the post-failure repair.
+
+Current status:
+- implementation: complete
+- validation: pending
+- scientific interpretation: blocked pending validation
+
+The repaired method must be evaluated against the same adversarial null framework rather than only against favorable or hand-selected cases.
