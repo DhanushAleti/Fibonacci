@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "generated_utc": "2026-08-12T13:16:05.913839+00:00",
+    "git_sha": "3412a67ef6b5a1f5ec4427a9558be2c02efcde70",
+    "numpy_version": "2.5.2",
+    "python": "3.13.6",
+    "config": {
+      "n_series": 100,
+      "series_length": 400,
+      "n_surrogates": 99
+    },
+    "note": "synthetic only; small-scale; no real-world phi claim; not the final validation"
+  },
+  "gate_1_aggregate_fpr": {
+    "value": 0.0108,
+    "threshold": 0.05,
+    "pass": true
+  },
+  "gate_2_per_dgp_fpr": {
+    "per_dgp": {
+      "iid_gaussian": 0.0,
+      "iid_heavy_tailed": 0.0,
+      "random_walk": 0.05,
+      "ar1": 0.0,
+      "heteroskedastic": 0.0,
+      "garch11": 0.0,
+      "regime_switching": 0.01,
+      "trend_plus_noise": 0.07,
+      "seasonality": 0.0,
+      "market_like": 0.01,
+      "coarse_tick": 0.0,
+      "ar_p": 0.0,
+      "autocorr_heavy": 0.0
+    },
+    "max": 0.07,
+    "threshold": 0.07,
+    "pass": true
+  },
+  "gate_3_power_medium": {
+    "value": 0.82,
+    "threshold": 0.8,
+    "pass": true
+  },
+  "gate_4_granularity": {
+    "phi_fpr_by_tick": {
+      "1000": 0.0,
+      "100": 0.0,
+      "50": 0.0,
+      "10": 0.22
+    },
+    "max_phi_fpr": 0.22,
+    "pass": false
+  },
+  "gate_5_constant_sweep_symmetry": {
+    "fpr_by_focal": {
+      "0.382": 0.0,
+      "0.5": 0.0,
+      "0.618": 0.0
+    },
+    "pass": true
+  },
+  "overall_pass": false,
+  "proceed_to_real_data": false
+}

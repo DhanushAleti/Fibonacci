@@ -144,6 +144,24 @@ Determine whether PHI can fool itself. Ran the frozen Phase-4 pipeline against s
 
 Synthetic data only; no φ claim; confirmatory path remains fail-closed / NO-GO.
 
+## 2026-08-12 — Development Log (Phase 4 post-failure repair)
+
+### Focus
+
+Implemented the arbitrated post-failure Repair Contract (`src/phi/phase4/repair/`) exactly, without tuning to pass: surrogate-standardized `Z_φ` estimand (`Δ_φ>0` permanently forbidden as confirmatory), rational-fraction controls `{1/2,3/5,5/8,2/3}`, block-permutation/GARCH/IAAFT surrogate ensemble, φ-attractor GARCH positive control, granularity audit, five-part gate, and a fail-closed confirmatory path with confirmatory/secondary/exploratory separation.
+
+### Discovery (small-scale validation; honest, not tuned)
+
+Surrogate-standardization neutralizes the geometric bias: aggregate null FPR **1.0 → 0.011**, per-DGP max 0.070, positive-control power (medium α=0.15) **0.82**, constant-sweep symmetric (φ/0.382/0.5 all 0.0). **But the granularity gate FAILS**: φ's FPR is 0.0 at 1000/100/50 tick levels and **0.22 at 10 levels** — the 5/8≈φ discretization artefact the audit exists to catch. Overall gate: does not pass. See `docs/21-releases/PHI_PHASE4_REPAIR_READINESS.md` and `results/phase4_repair_validation/results.json`.
+
+### Status held
+
+IMPLEMENTATION COMPLETE / VALIDATION PENDING. No real data run; confirmatory path fails closed (and would stay refused while the granularity gate fails). Full 10k/20k-per-DGP validation and the numerical pre-registration remain for a human/methodologist.
+
+### Next
+
+- Methodologist: resolve the granularity failure (exact fBm/GARCH/IAAFT surrogates and/or a registered minimum-tick-resolution rule) before the full validation and any confirmatory step.
+
 ---
 
 *New entries: append a `## YYYY-MM-DD — <Research Log | Development Log>` section below, following the format above.*
