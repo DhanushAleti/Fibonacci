@@ -126,6 +126,24 @@ No real data, no confirmatory run, no φ claim. Numerical pre-registration (`C`,
 
 - Methodologist: resolve the estimand null-calibration finding; then freeze the numerical pre-registration and pass the validation gates.
 
+## 2026-08-12 — Research Log (synthetic validation / false-positive torture test)
+
+### Focus
+
+Determine whether PHI can fool itself. Ran the frozen Phase-4 pipeline against synthetic processes with known generating mechanisms (`scripts/phase4_synthetic_validation.py`; machine-readable `results/phase4_validation/results.json`; [report](../21-releases/PHI_PHASE4_SYNTHETIC_VALIDATION.md)).
+
+### Result — FAIL (do not proceed to real data)
+
+- **13 null processes, FPR = 1.000 each** (Wilson CI [0.975, 1.0]); pooled 1,950 null simulations → 1,950 rejections. Nominal α = 0.05.
+- **Constant sweep (decisive):** under IID-Gaussian nulls every focal constant gets `Δ_c > 0` and φ ranks 4th of 5 — φ is **not** specifically preferred. The landscape `M(q)` minimises at ≈ 0.396, not φ.
+- **Controls:** the secondary landscape correctly localises injected structure (φ → 0.626, 0.5 → 0.506, 0.3 → 0.304); but the primary `Δ_φ`-vs-0 test falsely fires even for a 0.5-clustered process.
+- **Leakage battery clean** (look-ahead diff 0; scale/shift invariant). **Reproducibility pass.**
+- Root cause = Jensen bias of a symmetric-grid + convex-distance estimand tested against 0 (a geometric artefact, not φ). Fix is a methodologist decision, not a code change.
+
+### Boundary held
+
+Synthetic data only; no φ claim; confirmatory path remains fail-closed / NO-GO.
+
 ---
 
 *New entries: append a `## YYYY-MM-DD — <Research Log | Development Log>` section below, following the format above.*

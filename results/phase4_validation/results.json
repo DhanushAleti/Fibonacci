@@ -1,0 +1,285 @@
+{
+  "metadata": {
+    "generated_utc": "2026-08-12T11:31:32.432114+00:00",
+    "git_sha": "f1467c1a43ff9e09a8f43788068662b755597448",
+    "numpy_version": "2.5.2",
+    "python": "3.13.6",
+    "config": {
+      "n_series": 150,
+      "series_length": 400,
+      "replicates": 199,
+      "base_seed": 20260812
+    },
+    "comparison_set": [
+      0.418034,
+      0.468034,
+      0.518034,
+      0.568034,
+      0.668034,
+      0.718034,
+      0.768034,
+      0.818034
+    ],
+    "note": "synthetic data only; no real-world phi claim"
+  },
+  "A_nulls": {
+    "per_dgp": [
+      {
+        "dgp": "iid_gaussian",
+        "n_series": 150,
+        "n_valid": 150,
+        "n_rejected": 150,
+        "false_positive_rate": 1.0,
+        "fpr_wilson_ci95": [
+          0.975,
+          1.0
+        ],
+        "mean_delta_hat": 0.02402,
+        "expected": "~alpha (0.05)",
+        "status": "FAIL (over-rejects)"
+      },
+      {
+        "dgp": "iid_heavy_tailed",
+        "n_series": 150,
+        "n_valid": 150,
+        "n_rejected": 150,
+        "false_positive_rate": 1.0,
+        "fpr_wilson_ci95": [
+          0.975,
+          1.0
+        ],
+        "mean_delta_hat": 0.02247,
+        "expected": "~alpha (0.05)",
+        "status": "FAIL (over-rejects)"
+      },
+      {
+        "dgp": "random_walk",
+        "n_series": 150,
+        "n_valid": 150,
+        "n_rejected": 150,
+        "false_positive_rate": 1.0,
+        "fpr_wilson_ci95": [
+          0.975,
+          1.0
+        ],
+        "mean_delta_hat": 0.0163,
+        "expected": "~alpha (0.05)",
+        "status": "FAIL (over-rejects)"
+      },
+      {
+        "dgp": "ar1",
+        "n_series": 150,
+        "n_valid": 150,
+        "n_rejected": 150,
+        "false_positive_rate": 1.0,
+        "fpr_wilson_ci95": [
+          0.975,
+          1.0
+        ],
+        "mean_delta_hat": 0.02119,
+        "expected": "~alpha (0.05)",
+        "status": "FAIL (over-rejects)"
+      },
+      {
+        "dgp": "heteroskedastic",
+        "n_series": 150,
+        "n_valid": 150,
+        "n_rejected": 150,
+        "false_positive_rate": 1.0,
+        "fpr_wilson_ci95": [
+          0.975,
+          1.0
+        ],
+        "mean_delta_hat": 0.02382,
+        "expected": "~alpha (0.05)",
+        "status": "FAIL (over-rejects)"
+      },
+      {
+        "dgp": "garch11",
+        "n_series": 150,
+        "n_valid": 150,
+        "n_rejected": 150,
+        "false_positive_rate": 1.0,
+        "fpr_wilson_ci95": [
+          0.975,
+          1.0
+        ],
+        "mean_delta_hat": 0.02429,
+        "expected": "~alpha (0.05)",
+        "status": "FAIL (over-rejects)"
+      },
+      {
+        "dgp": "regime_switching",
+        "n_series": 150,
+        "n_valid": 150,
+        "n_rejected": 150,
+        "false_positive_rate": 1.0,
+        "fpr_wilson_ci95": [
+          0.975,
+          1.0
+        ],
+        "mean_delta_hat": 0.02366,
+        "expected": "~alpha (0.05)",
+        "status": "FAIL (over-rejects)"
+      },
+      {
+        "dgp": "trend_plus_noise",
+        "n_series": 150,
+        "n_valid": 150,
+        "n_rejected": 150,
+        "false_positive_rate": 1.0,
+        "fpr_wilson_ci95": [
+          0.975,
+          1.0
+        ],
+        "mean_delta_hat": 0.02411,
+        "expected": "~alpha (0.05)",
+        "status": "FAIL (over-rejects)"
+      },
+      {
+        "dgp": "seasonality",
+        "n_series": 150,
+        "n_valid": 150,
+        "n_rejected": 150,
+        "false_positive_rate": 1.0,
+        "fpr_wilson_ci95": [
+          0.975,
+          1.0
+        ],
+        "mean_delta_hat": 0.01477,
+        "expected": "~alpha (0.05)",
+        "status": "FAIL (over-rejects)"
+      },
+      {
+        "dgp": "market_like",
+        "n_series": 150,
+        "n_valid": 150,
+        "n_rejected": 150,
+        "false_positive_rate": 1.0,
+        "fpr_wilson_ci95": [
+          0.975,
+          1.0
+        ],
+        "mean_delta_hat": 0.02277,
+        "expected": "~alpha (0.05)",
+        "status": "FAIL (over-rejects)"
+      },
+      {
+        "dgp": "coarse_tick",
+        "n_series": 150,
+        "n_valid": 150,
+        "n_rejected": 150,
+        "false_positive_rate": 1.0,
+        "fpr_wilson_ci95": [
+          0.975,
+          1.0
+        ],
+        "mean_delta_hat": 0.02107,
+        "expected": "~alpha (0.05)",
+        "status": "FAIL (over-rejects)"
+      },
+      {
+        "dgp": "ar_p",
+        "n_series": 150,
+        "n_valid": 150,
+        "n_rejected": 150,
+        "false_positive_rate": 1.0,
+        "fpr_wilson_ci95": [
+          0.975,
+          1.0
+        ],
+        "mean_delta_hat": 0.02102,
+        "expected": "~alpha (0.05)",
+        "status": "FAIL (over-rejects)"
+      },
+      {
+        "dgp": "autocorr_heavy",
+        "n_series": 150,
+        "n_valid": 150,
+        "n_rejected": 150,
+        "false_positive_rate": 1.0,
+        "fpr_wilson_ci95": [
+          0.975,
+          1.0
+        ],
+        "mean_delta_hat": 0.01945,
+        "expected": "~alpha (0.05)",
+        "status": "FAIL (over-rejects)"
+      }
+    ]
+  },
+  "BC_controls": {
+    "positive_phi": {
+      "injected_target_ratio": 0.61803,
+      "n_eligible": 77,
+      "mean_R": 0.6263,
+      "landscape_argmin_q": 0.626,
+      "landscape_localises_injection": true,
+      "primary_delta_hat_vs_phi": 0.09471,
+      "primary_p_value": 0.005,
+      "primary_rejects_h0_favouring_phi": true
+    },
+    "negative_0.5": {
+      "injected_target_ratio": 0.5,
+      "n_eligible": 52,
+      "mean_R": 0.5025,
+      "landscape_argmin_q": 0.506,
+      "landscape_localises_injection": true,
+      "primary_delta_hat_vs_phi": 0.03343,
+      "primary_p_value": 0.005,
+      "primary_rejects_h0_favouring_phi": true
+    },
+    "negative_0.3": {
+      "injected_target_ratio": 0.3,
+      "n_eligible": 28,
+      "mean_R": 0.2986,
+      "landscape_argmin_q": 0.304,
+      "landscape_localises_injection": true,
+      "primary_delta_hat_vs_phi": 0.0,
+      "primary_p_value": 0.005,
+      "primary_rejects_h0_favouring_phi": true
+    }
+  },
+  "D_constant_sweep": {
+    "pooled_n": 14753,
+    "landscape_argmin_q": 0.396,
+    "delta_by_focal_constant": {
+      "phi": 0.01638,
+      "0.5": 0.0192,
+      "0.4": 0.02122,
+      "0.75": 0.01419,
+      "0.25": 0.02332
+    },
+    "phi_is_specifically_preferred": false
+  },
+  "E_multiple_testing": {
+    "total_null_simulations": 1950,
+    "total_rejections": 1950,
+    "pooled_false_positive_rate": 1.0,
+    "pooled_fpr_wilson_ci95": [
+      0.998,
+      1.0
+    ],
+    "nominal_alpha": 0.05
+  },
+  "F_leakage": {
+    "lookahead_earlier_retracements_max_abs_diff": 0.0,
+    "lookahead_leakage_free": true,
+    "scale_invariance_max_abs_diff": 2.942091015256665e-15,
+    "shift_invariance_max_abs_diff": 2.6911806116913795e-13,
+    "normalization_leakage_free": true,
+    "overlapping_window_note": "unit of inference is the completed excursion; stationary bootstrap resamples excursion blocks, so overlapping intra-excursion points are not treated as independent",
+    "train_test_separation_note": "discovery/confirmation/replication roles enforced by the fail-closed gate (phi.phase4.pipeline)"
+  },
+  "G_reproducibility": {
+    "same_seed_identical": true,
+    "different_seed_differs": true,
+    "cross_process_test": "tests/phase4/test_reproducibility.py"
+  },
+  "verdict": {
+    "nulls_calibrated": "0/13",
+    "pooled_fpr": 1.0,
+    "overall": "FAIL",
+    "proceed_to_real_data": false
+  }
+}
