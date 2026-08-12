@@ -39,6 +39,18 @@ uv run python -c "import phi, phi.features, phi.experiment; print('import OK', p
 Expected: the full suite passes at ~98% branch coverage, with `ruff` and `mypy` clean. (Test counts
 grow over time — trust the live number the command prints over any number written in prose.)
 
+### Phase-4 methodology (frozen; confirmatory execution blocked)
+
+```bash
+uv run pytest tests/phase4 -q                    # confirmatory methodology tests
+uv run pytest -m "reproducibility" -q            # in- and cross-process determinism
+```
+
+There is **no confirmatory command**: `phi.phase4` fails closed until a human completes the numerical
+pre-registration and the validation gates pass, and one gate (null-FPR calibration of the estimand *as
+specified*) does not currently pass — see the [Phase-4 contract](docs/05-mathematics/phi-phase4-scientific-contract.md) §7. The
+synthetic false-positive/power harnesses (`phi.phase4.calibration`) are runnable and deterministic.
+
 ## What "reproducible" means here — precisely
 
 - **Single-implementation determinism (demonstrated).** The feature computation is a pure function of

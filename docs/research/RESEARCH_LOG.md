@@ -104,6 +104,28 @@ No anchor algorithm, no `ε_φ`, no primary estimand, no inference layer, no φ 
 
 - Blockers 1–4 (causal anchor algorithm, `ε_φ`, primary estimand, dependence-aware inference) remain the gate to any Phase-4 confirmatory experiment — a human decision, not a coding task.
 
+## 2026-08-12 — Development Log (Phase 4 confirmatory methodology)
+
+### Focus
+
+Implemented the now-frozen Phase-4 confirmatory methodology (Chief Scientific Methodologist: GO-with-conditions; Final Arbiter: NO-GO to *run* until gates pass) exactly, without reinterpreting or optimizing for φ. New package `src/phi/phase4/`.
+
+### Progress
+
+- Anchor (`extrema.py`): deterministic three-point extrema with the plateau-midpoint parity rule; excursion pairing. Retracement (`retracement.py`): per-excursion terminal `R`, `R∈[0,1]` primary, `R>1` overshoot reported. Estimand (`estimand.py`): paired `Z_i`, `Δ̂_φ`, secondary landscape/rank. Inference (`inference.py`): Politis–White automatic block length + Politis–Romano stationary bootstrap, percentile CI, one-sided p-value with MC error. Multiplicity (`multiplicity.py`): Holm. Null-DGP suite + calibration + power (`nulldgp.py`, `calibration.py`). Replication separation (`datasets.py`), four-outcome verdict (`verdict.py`), and a fail-closed confirmatory gate (`registration.py`, `pipeline.py`). 83 methodology tests; project-wide gates green.
+
+### Honest finding (locked as a regression)
+
+The primary estimand *as specified* is **not null-calibrated**: by Jensen's inequality, symmetric controls make `Δ_φ ≥ 0` on pure noise, so the empirical false-positive rate is ≈ 1.0 under IID/random-walk/AR nulls. It fails the contract's own hard gate (§XLIV), which correctly keeps confirmatory analysis blocked. This is surfaced, not hidden or "fixed"; resolving it (e.g., testing `Δ̂_φ` against its null/surrogate distribution, or a convexity-corrected estimand) is a methodologist decision.
+
+### Scope boundary held
+
+No real data, no confirmatory run, no φ claim. Numerical pre-registration (`C`, `δ_min`, Dataset A/B, block-length config, seed) remains for a human to freeze; the code fails closed until then.
+
+### Next
+
+- Methodologist: resolve the estimand null-calibration finding; then freeze the numerical pre-registration and pass the validation gates.
+
 ---
 
 *New entries: append a `## YYYY-MM-DD — <Research Log | Development Log>` section below, following the format above.*
