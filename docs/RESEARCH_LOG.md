@@ -20,3 +20,11 @@ The prior synthetic validation produced a catastrophic false-positive result:
 - temporal and metamorphic invariance tests passed
 
 The failure is therefore treated as a methodological validity failure, not as evidence for the PHI hypothesis.
+
+### Post-Failure Statistical Diagnosis
+
+The observed positive Δφ under null conditions is considered structurally induced until demonstrated otherwise.
+
+The constant-sweep result is especially important: because comparable behavior occurs across alternative constants, the effect cannot presently be interpreted as φ-specific evidence.
+
+The repaired methodology must therefore demonstrate calibrated null behavior before any confirmatory interpretation is permitted.
