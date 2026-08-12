@@ -47,3 +47,9 @@ Current status:
 - scientific interpretation: blocked pending validation
 
 The repaired method must be evaluated against the same adversarial null framework rather than only against favorable or hand-selected cases.
+
+### Reproducibility Checkpoint
+
+The existing investigation established reproducibility of the original failure. This property is retained as a requirement for the repaired pipeline.
+
+Future validation must preserve deterministic configuration, explicit seeds, recorded parameters, and machine-readable outputs sufficient to independently reconstruct the result.
