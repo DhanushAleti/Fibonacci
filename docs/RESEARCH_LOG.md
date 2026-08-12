@@ -28,3 +28,11 @@ The observed positive Δφ under null conditions is considered structurally indu
 The constant-sweep result is especially important: because comparable behavior occurs across alternative constants, the effect cannot presently be interpreted as φ-specific evidence.
 
 The repaired methodology must therefore demonstrate calibrated null behavior before any confirmatory interpretation is permitted.
+
+### Scientific Gate
+
+Phase 4 remains fail-closed.
+
+No positive PHI claim may be made unless the repaired synthetic validation demonstrates acceptable null calibration and the predefined confirmatory criteria are satisfied.
+
+A successful software run is not equivalent to scientific validation.
