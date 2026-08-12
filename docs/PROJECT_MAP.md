@@ -12,7 +12,7 @@ To answer one specific, falsifiable research question: do Golden Ratio (φ ≈ 1
 
 ## Canonical Research Documents
 
-- [`docs/02-project/PHI_PRD.md`](02-project/PHI_PRD.md) — Product Requirements Document: research question, hypotheses (H1/H0), 12 named φ-feature families, mandatory 6-category control/placebo framework, backtesting/validation requirements, phase plan
+- [`docs/02-project/PHI_PRD.md`](02-project/PHI_PRD.md) — Product Requirements Document: research question, hypotheses (H1/H0), 10 named φ-feature families (PRD-GRF-001…010; GRF-011/012 are process rules, not families — see [ADR 0002](18-decisions/0002-phase2-feature-and-control-design-lock.md)), mandatory 6-category control/placebo framework, backtesting/validation requirements, phase plan
 - [`docs/03-architecture/SYSTEM_ARCHITECTURE.md`](03-architecture/SYSTEM_ARCHITECTURE.md) — system architecture built to satisfy the PRD (modular monolith, falsifiable research core, time-semantics, bias-prevention architecture)
 - [`docs/04-research/RESEARCH_HYPOTHESES.md`](04-research/RESEARCH_HYPOTHESES.md) — formal hypothesis statements
 - [`docs/04-research/VALIDATION_CHECKLIST.md`](04-research/VALIDATION_CHECKLIST.md) — validation methodology checklist

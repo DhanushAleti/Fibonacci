@@ -415,6 +415,8 @@ Illustrative (non-exhaustive, non-final) feature categories under this research 
 
 ## 15. Falsification / Placebo Architecture
 
+> **Reconciliation (see [ADR 0002](../18-decisions/0002-phase2-feature-and-control-design-lock.md)).** The canonical control taxonomy is PRD [§18](../02-project/PHI_PRD.md#18-control--placebo-framework)'s six categories (PRD-CONTROL-001…006). The **"Non-φ mathematical ratios"** control listed below is **not** a separate category — it is a required instantiation of PRD-CONTROL-003 (fixed numerical benchmark), instantiation "C2" in the [feature & control contract](../05-mathematics/phi-retracement-feature-contract.md). The list below is the architectural intent; the contract is the frozen, implementation-grade source.
+
 This is a mandatory, non-optional part of PHI's architecture: no Golden Ratio feature or model result is evaluated in isolation. Every evaluation compares φ-derived features against a control set, computed and evaluated under **identical conditions**:
 
 - **Randomized scalar features** — features with the same statistical shape (distribution, autocorrelation profile) as the φ-feature but generated from randomization rather than φ-derived logic, to test whether any observed effect exceeds chance.

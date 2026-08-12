@@ -18,6 +18,8 @@ alone is not sufficient evidence.
 
 ## Required Comparisons
 
+> **Superseded (lay summary).** This five-item list is a plain-language summary. The **canonical** comparison framework is the six-category control set in PRD [§18](../02-project/PHI_PRD.md#18-control--placebo-framework) (PRD-CONTROL-001…006), frozen for the first φ feature in [ADR 0002](../18-decisions/0002-phase2-feature-and-control-design-lock.md) and the [feature & control contract](../05-mathematics/phi-retracement-feature-contract.md). Use those; the list below is retained only for orientation.
+
 Every material result should be evaluated against:
 
 - Naive baseline

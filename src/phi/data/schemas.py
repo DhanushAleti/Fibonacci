@@ -114,9 +114,19 @@ class PriceBar(BaseModel):
     was actually knowable (SYSTEM_ARCHITECTURE §12). They are tracked separately
     because the two can diverge (e.g. restated data) and collapsing them would
     make look-ahead bias structurally undetectable.
+
+    ``allow_inf_nan=False`` makes non-finite prices/volume a *construction*
+    error, not a downstream surprise: Pydantic v2 otherwise defaults to
+    permitting ``+inf``/``-inf`` for float fields (only ``NaN`` is incidentally
+    rejected by the ``gt``/``ge`` bounds). Without this, a ``+inf`` high would
+    pass validation and silently collapse the feature layer's position-in-range
+    to ``0.0`` (``(close - low) / inf``) instead of being rejected. The feature
+    contract (phi-retracement-feature-contract.md §6 case 7) relies on a
+    validated ``PriceBar`` being finite, so that invariant must be enforced
+    here at the type boundary rather than merely assumed.
     """
 
-    model_config = ConfigDict(frozen=True)
+    model_config = ConfigDict(frozen=True, allow_inf_nan=False)
 
     symbol: str = Field(min_length=1)
     event_time: datetime

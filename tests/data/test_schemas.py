@@ -138,6 +138,36 @@ class TestPriceBar:
         with pytest.raises(ValidationError):
             _bar(volume=-1.0)
 
+    def test_non_finite_prices_rejected(self) -> None:
+        # The feature contract (phi-retracement-feature-contract.md §6 case 7)
+        # relies on a validated PriceBar being finite. Pydantic v2 would
+        # otherwise let +inf/-inf through for float fields (only NaN is caught
+        # incidentally by the gt/ge bounds). A +inf high silently collapses the
+        # position-in-range feature to 0.0 downstream, so it must be a
+        # construction error here, at the type boundary.
+        inf = float("inf")
+        nan = float("nan")
+        for field, value in [
+            ("high", inf),
+            ("close", inf),  # with a finite high this also violates close<=high
+            ("open", inf),
+            ("low", inf),
+            ("volume", inf),
+            ("high", -inf),
+            ("high", nan),
+            ("close", nan),
+            ("volume", nan),
+        ]:
+            with pytest.raises(ValidationError):
+                _bar(**{field: value})
+
+    def test_finite_inf_high_does_not_slip_through_as_valid(self) -> None:
+        # Regression for the specific silent-corruption path: high=+inf with an
+        # otherwise-consistent OHLC (low<=open,close<=high trivially holds) must
+        # NOT construct — previously it did, yielding p_t=(close-low)/inf=0.0.
+        with pytest.raises(ValidationError):
+            _bar(high=float("inf"), low=99.0, open=100.0, close=100.5)
+
     def test_bar_is_frozen(self) -> None:
         bar = _bar()
         with pytest.raises(ValidationError):

@@ -1,34 +1,39 @@
 # Project PHI
 
-Project PHI is a research-grade quantitative platform built to answer one specific, falsifiable question: do Golden Ratio (φ ≈ 1.6180339887) and Fibonacci-derived mathematical features carry statistically useful, out-of-sample predictive information about financial markets, once measured against realistic controls? See [docs/02-project/PHI_PRD.md](docs/02-project/PHI_PRD.md) for the full research question, hypotheses, and product requirements, and [docs/03-architecture/SYSTEM_ARCHITECTURE.md](docs/03-architecture/SYSTEM_ARCHITECTURE.md) for the architecture built to answer it. This repository currently contains the project's foundational documentation and repository scaffolding — application code has not yet been written.
+Project PHI is a research-grade quantitative platform built to answer one specific, falsifiable question: does a **pre-specified φ-retracement structure** (built from the Golden Ratio, φ ≈ 1.6180339887) occur in eligible market observations at a frequency or magnitude **distinguishable from appropriately matched non-φ controls**, under an information-safe, multiplicity-controlled procedure? See [docs/02-project/PHI_PRD.md](docs/02-project/PHI_PRD.md) for the full research question and hypotheses, [docs/03-architecture/SYSTEM_ARCHITECTURE.md](docs/03-architecture/SYSTEM_ARCHITECTURE.md) for the architecture, and the frozen [feature & control contract](docs/05-mathematics/phi-retracement-feature-contract.md) for the exact, implementation-grade specification.
+
+> **Scientific-claim boundary (read first).** PHI has produced **no φ result, and makes no φ claim.** What is implemented is the *leakage-safe construction* of one candidate feature and six matched controls, plus science-neutral pre-registration/reproducibility infrastructure that is deliberately **prevented in code** from running a confirmatory analysis while the core scientific decisions are unfrozen. Passing tests and high coverage are **engineering facts, not scientific validation** (per the [authoritative contract](docs/05-mathematics/phi-retracement-feature-contract.md) §0A and PRD-GRF-012). The eventual verdict — *evidence for*, *no convincing evidence*, or *evidence against* — belongs to a properly registered experiment that has **not** been run.
 
 **What PHI is not:** PHI is not a general-purpose academic/education platform. Earlier in this repository's history, a materially different "AcademicOS" documentation set (academic data, courses, assessments, grades, scheduling) was added alongside the Fibonacci research material under the same project name. That material has been separated out to [archive/academicos/](archive/academicos/README.md) so it isn't mistaken for this project's actual scope — see that folder's README for why, and [docs/ORGANIZATION_REPORT.md](docs/ORGANIZATION_REPORT.md) for the full identity-resolution audit. Nothing was deleted; no decision has been made about that material's future.
 
 ## Current Status
 
-**Version:** 0.2.0 — Phase 0 (Engineering Foundation) and Phase 1 (Data Foundation) implemented and tested (see [CHANGELOG.md](CHANGELOG.md) and [docs/ROADMAP/NEXT_STEPS.md](docs/ROADMAP/NEXT_STEPS.md))
+**Version:** 0.2.0 — Phases 0–2 (engineering, data, φ-feature construction) plus science-neutral experiment infrastructure are implemented and tested. The full suite passes at ~98% branch coverage, Ruff- and mypy-clean; run `uv sync --extra dev && uv run pytest` for the live count (see [REPRODUCIBILITY.md](REPRODUCIBILITY.md)).
 
-The PRD (`docs/02-project/PHI_PRD.md`) and architecture documents (`docs/03-architecture/`) are drafted with real content (not skeletons), and application code has now begun against them:
-
-- **Implemented and tested:** `src/phi/{config,logging,cli}.py` (Phase 0), and `src/phi/data/` — time semantics / the T-1 information barrier, domain schemas, data validation (gap/duplicate/monotonicity/volume checks), a synthetic (test-only) data provider, a local Parquet-backed storage repository, and ingestion orchestration (Phase 1). 77 tests, 97% coverage, lint- and type-clean. Run `uv sync --extra dev && uv run pytest` to verify.
-- **Not yet implemented:** feature engineering / the Golden Ratio feature laboratory (Phase 2), the event-driven backtester (Phase 3), statistical validation (Phase 4), and experiment tracking (Phase 5). No real market-data provider is connected — all validated data so far is clearly-labeled synthetic, never presented as market evidence. See [docs/ROADMAP/NEXT_STEPS.md](docs/ROADMAP/NEXT_STEPS.md) for what's done versus deferred, and [docs/18-decisions/](docs/18-decisions/) for implementation-environment decisions (e.g. why Phase 1 storage is Parquet rather than the architecture's committed PostgreSQL/TimescaleDB).
-- `backend/`, `frontend/`, `models/`, `notebooks/` remain empty — correctly deferred to their respective phases.
+- **Implemented and tested:**
+  - **Phase 0 — engineering:** `src/phi/{config,logging,cli}.py` — deterministic settings, secret-safe structured logging, an introspection CLI.
+  - **Phase 1 — data:** `src/phi/data/` — time semantics / the T-1 information barrier, domain schemas (non-finite prices rejected at construction), validation (gap/duplicate/monotonicity/volume), a clearly-labeled **synthetic** provider, a Parquet-backed repository, ingestion, and point-in-time queries.
+  - **Phase 2 — φ-feature construction** (`src/phi/features/`): the **authoritative** rolling-window candidate `f_A(t) = |p_t − 1/φ|` and its **six-category matched control set** (A/B/C1/C2/D/E/F), all sharing one leakage-safe pipeline, `L = 20`, with an adversarial future-injection leakage test. Also present: the excursion-retracement **arithmetic** (`retracement.py`) as **Phase-4 guidance only**, per the feature-authority decision ([ADR 0003](docs/18-decisions/0003-phase2-external-review-nogo-and-feature-authority.md)).
+  - **Experiment infrastructure** (`src/phi/experiment/`, science-neutral): an immutable, content-hashed pre-registration **manifest** whose `is_confirmatory_ready()` refuses to authorize confirmatory analysis while the scientific blockers are unfrozen; an **exclusion-accounting** ledger; and **provenance** capture (git SHA + lockfile hash).
+- **Deliberately NOT implemented (gated NO-GO):** the causal anchor/excursion algorithm, the φ-hit threshold `ε_φ`, the primary estimand, and the entire statistical/inference layer (bootstrap, CIs, effect sizes, multiplicity, surrogates). Three external reviews returned **NO-GO/FAIL** on these; they are scientific decisions that must be **frozen by a human**, not invented in code (see [docs/18-decisions/0003…](docs/18-decisions/0003-phase2-external-review-nogo-and-feature-authority.md) and the [feature contract](docs/05-mathematics/phi-retracement-feature-contract.md) §9).
+- **No real market data** is connected — all validated data is clearly-labeled synthetic and never presented as market evidence (PRD-OPEN-001 open by design). `backend/`, `frontend/`, `models/`, `notebooks/` remain empty, deferred to later phases.
 
 ## Roadmap
 
-See [docs/19-roadmap/README.md](docs/19-roadmap/README.md) for the roadmap and [docs/REFERENCE/MILESTONES.md](docs/REFERENCE/MILESTONES.md) for the proposed phased milestone plan. At a high level, the next step after this foundation release is to move the PRD and architecture documents from skeletons to reviewed, real content ahead of any application code.
+See [docs/ROADMAP/NEXT_STEPS.md](docs/ROADMAP/NEXT_STEPS.md) for what is done versus deferred, and [docs/19-roadmap/README.md](docs/19-roadmap/README.md) / [docs/REFERENCE/MILESTONES.md](docs/REFERENCE/MILESTONES.md) for the milestone plan. The next milestone is **not** more feature code: it is the human freezing of the four scientific blockers (anchor algorithm, `ε_φ`, primary estimand, dependence-aware inference) that alone can authorize a confirmatory Phase-4 experiment.
 
 ## Repository Structure
 
 ```
 project-phi/
+├── src/phi/                   # Implementation: config/logging/cli, data/, features/, experiment/
+├── tests/                     # Test suite (data/, features/, experiment/) — mirrors src/phi
 ├── backend/                   # Backend service code (not yet started)
 ├── frontend/                  # Frontend application code (not yet started)
 ├── data/                      # Data assets and pipelines (not yet started)
 ├── models/                    # ML/AI model artifacts (not yet started)
 ├── notebooks/                 # Research and analysis notebooks (not yet started)
 ├── scripts/                   # Utility and automation scripts (not yet started)
-├── tests/                     # Test suites (not yet started)
 ├── docs/                      # AI Operating System (AIOS) documentation
 │   ├── 00-ai-command-center/  # Docs entry point / index
 │   ├── 01-ai-playbooks/       # AI role playbooks (PHI_SYSTEM.md, etc.)

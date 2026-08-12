@@ -161,6 +161,8 @@ This corresponds to the architecture's treatment of the same research family in 
 
 ## 18. Control / Placebo Framework
 
+> **Canonical Phase 2 operationalization.** The concrete, frozen instantiation of this six-category framework for PHI's first φ feature — including how SYSTEM_ARCHITECTURE §15's "non-φ mathematical ratios" maps onto PRD-CONTROL-003 (as instantiation C2) — is specified in [ADR 0002](../18-decisions/0002-phase2-feature-and-control-design-lock.md) and the [feature & control contract](../05-mathematics/phi-retracement-feature-contract.md). The categories and IDs below are unchanged; the contract is the authoritative source for their exact construction.
+
 The research question this platform answers is **not** "does φ make money?" It is: **does φ provide information that survives comparison against reasonable alternatives and statistical controls?** Every Golden Ratio feature evaluation must be accompanied by a comparison against all of the following, computed and evaluated under equivalent conditions:
 
 | ID | Category | Purpose |

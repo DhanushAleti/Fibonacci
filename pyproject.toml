@@ -68,6 +68,10 @@ ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["PLR2004", "N802", "N803", "N806"]
+# Category names (f_A, f_C1, f_C2, ...) mirror the frozen contract's own
+# notation (docs/05-mathematics/phi-retracement-feature-contract.md §3, §7)
+# verbatim, for one-to-one traceability between spec and implementation.
+"src/phi/features/**" = ["N802"]
 
 [tool.mypy]
 # Set to the actual development interpreter (3.13, per `uv run python --version`)
