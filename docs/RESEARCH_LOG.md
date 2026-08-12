@@ -53,3 +53,17 @@ The repaired method must be evaluated against the same adversarial null framewor
 The existing investigation established reproducibility of the original failure. This property is retained as a requirement for the repaired pipeline.
 
 Future validation must preserve deterministic configuration, explicit seeds, recorded parameters, and machine-readable outputs sufficient to independently reconstruct the result.
+
+## End-of-Day Checkpoint
+
+Phase 4 post-failure repair is implemented but not yet scientifically validated.
+
+The project remains in a pre-confirmatory state.
+
+Next scientific action:
+1. execute the repaired synthetic validation;
+2. inspect null calibration;
+3. determine whether the repair actually removes the structural false-positive mechanism;
+4. only then decide whether Phase 4 can proceed.
+
+No result should be promoted to evidence merely because the repaired implementation executes successfully.
