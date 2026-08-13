@@ -1,5 +1,13 @@
 # Project PHI
 
+> **Repository identity.** This project is published on GitHub as **Fibonacci**
+> (`github.com/DhanushAleti/Fibonacci`). Internally, the scientific research project is named **PHI** —
+> that terminology is used throughout this repository's research documentation and is not being renamed
+> for branding purposes; "Fibonacci" names the repository, "PHI" names the science. **Academic OS** is a
+> completely separate, unrelated project and does not live in this repository — see the AcademicOS note
+> below for historical context on previously-archived, isolated material that must not be confused with
+> the active project.
+
 Project PHI is a research-grade quantitative platform built to answer one specific, falsifiable question: does a **pre-specified φ-retracement structure** (built from the Golden Ratio, φ ≈ 1.6180339887) occur in eligible market observations at a frequency or magnitude **distinguishable from appropriately matched non-φ controls**, under an information-safe, multiplicity-controlled procedure? See [docs/02-project/PHI_PRD.md](docs/02-project/PHI_PRD.md) for the full research question and hypotheses, [docs/03-architecture/SYSTEM_ARCHITECTURE.md](docs/03-architecture/SYSTEM_ARCHITECTURE.md) for the architecture, and the frozen [feature & control contract](docs/05-mathematics/phi-retracement-feature-contract.md) for the exact, implementation-grade specification.
 
 ```
