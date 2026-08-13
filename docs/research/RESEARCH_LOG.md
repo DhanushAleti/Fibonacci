@@ -162,6 +162,47 @@ IMPLEMENTATION COMPLETE / VALIDATION PENDING. No real data run; confirmatory pat
 
 - Methodologist: resolve the granularity failure (exact fBm/GARCH/IAAFT surrogates and/or a registered minimum-tick-resolution rule) before the full validation and any confirmatory step.
 
+## 2026-08-13 — Research Log (final scientific finalization)
+
+### Focus
+
+Final work session: reconcile all Phase-4 evidence, independently re-verify the one gate value sitting
+exactly on its own threshold, and produce the authoritative scientific record —
+[docs/PHI_FINAL_SCIENTIFIC_STATUS.md](../PHI_FINAL_SCIENTIFIC_STATUS.md),
+[docs/PHI_FINAL_RESEARCH_REPORT.md](../PHI_FINAL_RESEARCH_REPORT.md),
+[docs/RELEASE_STATUS.md](../RELEASE_STATUS.md). No methodology, threshold, DGP, or surrogate was
+changed; no repair work was attempted.
+
+### New finding — per-DGP FPR gate does not survive replication
+
+The existing small-scale repair-validation artifact reported `trend_plus_noise` FPR = 0.07 — exactly
+the Repair Contract's threshold — from a single seed at `n_series=100`. A targeted, moderate,
+reproducible multi-seed re-check (`scripts/phase4_trend_plus_noise_reverification.py`, existing
+harness, no changes) exactly reproduced the original value at its actual seed (20260819), then ran 6
+further independent seeds (5 at `n=100`, 2 at `n=300`). Grand-pooled across all 8 runs (1,200 series):
+**FPR ≈ 0.108, 95% CI [0.091, 0.126]** — decisively above 0.07. The originally reported value was the
+low tail of sampling variability, not representative. **Gate 2 does not robustly pass**, alongside the
+already-known Gate 4 (granularity) failure.
+
+### Also documented (code review, not new code)
+
+- The mandated secondary/tertiary surrogate families (GARCH, IAAFT) are implemented but exercised only
+  in unit tests — every validation-gate calculation to date uses the primary block-permutation
+  surrogate only.
+- The φ-vs-5/8 rational-specificity test (`confirmatory_phi_test`, Holm-adjusted) is implemented but
+  exercised only once, in a single unit test on one synthetic series — never against the 13-DGP null
+  suite.
+
+### Engineering re-verification
+
+347 tests passed, 98% branch coverage, Ruff and mypy clean — run directly in this session, not assumed.
+
+### Verdict
+
+**B — NOT CLEARED — REPAIR REQUIRED.** Confirmatory path remains fail-closed. No real data analyzed.
+Further repair is documented as future work, not attempted here (per this session's operating brief:
+diagnose and record, do not repair).
+
 ---
 
 *New entries: append a `## YYYY-MM-DD — <Research Log | Development Log>` section below, following the format above.*

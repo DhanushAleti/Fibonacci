@@ -1,0 +1,63 @@
+{
+  "note": "synthetic only; targeted re-verification of one borderline gate value; no phi claim",
+  "threshold": 0.07,
+  "runs": {
+    "reproduce_original_seed20260819": {
+      "fpr": 0.07,
+      "valid": 100
+    },
+    "n100_seed1007": {
+      "fpr": 0.11,
+      "valid": 100
+    },
+    "n100_seed2007": {
+      "fpr": 0.13,
+      "valid": 100
+    },
+    "n100_seed3007": {
+      "fpr": 0.16,
+      "valid": 100
+    },
+    "n100_seed4007": {
+      "fpr": 0.12,
+      "valid": 100
+    },
+    "n100_seed5007": {
+      "fpr": 0.11,
+      "valid": 100
+    },
+    "n300_seed1007": {
+      "fpr": 0.10666666666666667,
+      "valid": 300
+    },
+    "n300_seed2007": {
+      "fpr": 0.09333333333333334,
+      "valid": 300
+    }
+  },
+  "pooled_n100_scale": {
+    "fpr": 0.1167,
+    "n": 600,
+    "approx_95ci": [
+      0.091,
+      0.1424
+    ]
+  },
+  "pooled_n300_scale": {
+    "fpr": 0.1,
+    "n": 600,
+    "approx_95ci": [
+      0.076,
+      0.124
+    ]
+  },
+  "grand_pooled": {
+    "fpr": 0.1083,
+    "n": 1200,
+    "approx_95ci": [
+      0.0907,
+      0.1259
+    ],
+    "exceeds_threshold": true
+  }
+}

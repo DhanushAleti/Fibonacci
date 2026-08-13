@@ -1,4 +1,9 @@
 
+> **Superseded (2026-08-13):** every "validation remains pending" statement below has been resolved —
+> the small-scale validation ran and the repair does **not** pass its own gate (2 of 5 gates fail; see
+> [docs/PHI_FINAL_SCIENTIFIC_STATUS.md](PHI_FINAL_SCIENTIFIC_STATUS.md)). Entries below are retained
+> unmodified for historical traceability.
+
 ## 2026-08-12 — Phase 4 Post-Failure Repair Checkpoint
 
 - Branch: `feat/phase4-confirmatory-implementation`

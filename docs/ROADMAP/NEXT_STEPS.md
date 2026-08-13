@@ -1,6 +1,12 @@
 # PHI Next Steps
 
-**Status:** Canonical roadmap for Project PHI. (`docs/19-roadmap/README.md` is a navigation index that points here — it does not duplicate this content.) **Last Updated:** 2026-08-12.
+**Status:** Canonical roadmap for Project PHI. (`docs/19-roadmap/README.md` is a navigation index that points here — it does not duplicate this content.) **Last Updated:** 2026-08-13.
+
+**Scientific finalization:** the project's confirmatory science was finalized 2026-08-13 with verdict
+**B — NOT CLEARED — REPAIR REQUIRED** (fail-closed; no real data analyzed). See
+[docs/PHI_FINAL_SCIENTIFIC_STATUS.md](../PHI_FINAL_SCIENTIFIC_STATUS.md) and
+[docs/RELEASE_STATUS.md](../RELEASE_STATUS.md) for the authoritative record and remaining blockers
+before any further roadmap phase touching real data or a confirmatory run can proceed.
 
 ## Done
 

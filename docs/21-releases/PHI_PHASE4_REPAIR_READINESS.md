@@ -1,6 +1,13 @@
 # PHI — Phase 4 Repair Implementation Report
 
-**Date:** 2026-08-12 · **Status: IMPLEMENTATION COMPLETE / VALIDATION PENDING**
+> **Superseded status note (2026-08-13):** the "validation pending" status below is stale. Validation
+> has since run to a conclusion: **FAILED** (2 of 5 gates), not merely "pending" — the granularity
+> failure below is confirmed, and a multi-seed replication found the per-DGP gate (§11, `trend_plus_noise`)
+> also does not survive replication. See [docs/PHI_FINAL_SCIENTIFIC_STATUS.md](../PHI_FINAL_SCIENTIFIC_STATUS.md)
+> for the current authoritative record. This report is retained unmodified below for historical
+> traceability.
+
+**Date:** 2026-08-12 · **Status: IMPLEMENTATION COMPLETE / VALIDATION PENDING** *(superseded — see note above)*
 **Data:** synthetic only. **REAL DATA HAS NOT BEEN RUN. No φ claim is made.**
 
 > The original `Δ_φ > 0` test FAILED synthetic validation (FPR = 1.0 across 13 nulls). This report covers the implementation of the arbitrated **Repair Contract**. It does **not** claim scientific success: the small-scale validation shows the repair fixes the geometric bias and is powered, but **fails one of the five gates** (granularity) — reported honestly and **not tuned away** (Repair Contract absolute rule).

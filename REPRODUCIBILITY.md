@@ -16,6 +16,13 @@ dependence-aware inference) is deliberately **not implemented** and is gated NO-
 [feature & control contract](docs/05-mathematics/phi-retracement-feature-contract.md) §0A and
 [ADR 0003](docs/18-decisions/0003-phase2-external-review-nogo-and-feature-authority.md).
 
+**The single authoritative statement of PHI's scientific status** — including the Phase-4 confirmatory
+methodology, its synthetic falsification, the post-failure repair, and why the repair also does not
+currently clear its own validation gates — is
+[docs/PHI_FINAL_SCIENTIFIC_STATUS.md](docs/PHI_FINAL_SCIENTIFIC_STATUS.md), with the full narrative in
+[docs/PHI_FINAL_RESEARCH_REPORT.md](docs/PHI_FINAL_RESEARCH_REPORT.md). Every headline number in those
+two documents is reproduced by a command in this file.
+
 ## Environment
 
 - **Python:** ≥ 3.11 (developed and type-checked under 3.13).
@@ -50,6 +57,57 @@ There is **no confirmatory command**: `phi.phase4` fails closed until a human co
 pre-registration and the validation gates pass, and one gate (null-FPR calibration of the estimand *as
 specified*) does not currently pass — see the [Phase-4 contract](docs/05-mathematics/phi-phase4-scientific-contract.md) §7. The
 synthetic false-positive/power harnesses (`phi.phase4.calibration`) are runnable and deterministic.
+
+### Phase-4 original synthetic falsification (FAIL — provenance for the headline numbers)
+
+```bash
+uv run pytest tests/phase4 -q                                # 83 methodology tests, git SHA f1467c1
+uv run python scripts/phase4_synthetic_validation.py          # regenerates results/phase4_validation/results.json
+```
+
+Headline numbers (aggregate FPR = 1.000 across 1,950 null trials; φ ranks 4th of 5 in the constant
+sweep) come directly from `results/phase4_validation/results.json` (git SHA `f1467c1`, config
+`n_series=150, series_length=400, replicates=199, base_seed=20260812`). Report:
+[docs/21-releases/PHI_PHASE4_SYNTHETIC_VALIDATION.md](docs/21-releases/PHI_PHASE4_SYNTHETIC_VALIDATION.md).
+
+### Phase-4 repair validation (small-scale — does not pass its own gate)
+
+```bash
+uv run pytest tests/phase4/repair -q                          # 39 repair tests
+uv run python scripts/phase4_repair_validation.py              # small-scale 5-part gate (~90s)
+uv run python scripts/phase4_repair_validation.py --full       # heavier run (1000x999); not yet run
+```
+
+Headline numbers (aggregate FPR 1.0 → 0.011; power 0.82; granularity FPR 0.22 at 10-tick resolution)
+come from `results/phase4_repair_validation/results.json`, `n_series=100, series_length=400,
+n_surrogates=99, base_seed=20260812`. **Provenance note:** this artifact's own `git_sha` field records
+`3412a67` (the commit immediately before the repair modules were committed as `a0e07aa`) — the script
+ran against a working tree that already had the repair code but had not yet committed it. The numeric
+result is unaffected; only the artifact's self-reported provenance pointer is one commit behind where
+the code actually landed. The final 10,000/20,000-per-DGP validation (`--full`) has never been run.
+
+### Trend-plus-noise per-DGP gate re-verification (new in this finalization pass)
+
+The small-scale artifact above reports the `trend_plus_noise` null process at FPR = 0.07 — **exactly**
+the Repair Contract's 0.07 per-DGP threshold, from a single seed at `n_series=100`. Because a value
+sitting precisely on its decision boundary at that scale carries meaningful sampling uncertainty, this
+was re-checked with independent seeds using the existing, unmodified harness (no DGP, estimand, or
+threshold changed):
+
+```bash
+uv run python scripts/phase4_trend_plus_noise_reverification.py
+```
+
+Output: `results/phase4_repair_validation/trend_plus_noise_reverification.json`. Method: an exact
+reproduction of the original run (`base_seed=20260819`, the seed `null_suite_fpr` assigns to
+`trend_plus_noise` at harness `base_seed=20260812`, since it is index 7 of 13 in `REPAIR_NULL_SUITE`)
+confirms determinism (reproduces 0.07 exactly); six further independent seeds (five at `n_series=100`,
+two at `n_series=300`) give FPRs of 0.11, 0.13, 0.16, 0.12, 0.11, 0.1067, 0.0933. Grand-pooled across
+all 8 runs (1,200 total simulated series): **FPR ≈ 0.108, approximate 95% CI [0.091, 0.126]** —
+decisively above the 0.07 threshold. **Conclusion: the per-DGP FPR gate does not robustly pass for
+trend_plus_noise; the originally reported 0.07 was the low tail of sampling variability at small n, not
+a representative estimate.** See [docs/PHI_FINAL_SCIENTIFIC_STATUS.md](docs/PHI_FINAL_SCIENTIFIC_STATUS.md) §12 for
+full interpretation.
 
 ## What "reproducible" means here — precisely
 
